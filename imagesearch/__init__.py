@@ -7,7 +7,7 @@ import os
 from flask import Flask, render_template
 from flask_mongoengine import MongoEngine
 
-def create_app():    
+def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     # load default config

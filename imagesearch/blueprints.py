@@ -2,10 +2,23 @@
 Exports ImageSearch app blueprints.
 """
 
-from flask import Blueprint, render_template
+from flask import Blueprint, jsonify, render_template, request
+
+from .helpers import get_latest_searches, save_search_to_database, search_images
 
 home = Blueprint("home", __name__, url_prefix="/")
 
 @home.route("/")
 def index():
     return render_template("home.html")
+
+@home.route("/search/<terms>")
+def search(terms):
+    offset = request.args.get("offset", 1, type=int)
+    images = search_images(terms, offset)
+    save_search_to_database(terms)
+    return jsonify(images)
+
+@home.route("/latest")
+def latest():
+    return jsonify(get_latest_searches())
