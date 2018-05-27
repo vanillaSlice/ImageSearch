@@ -2,6 +2,68 @@
 
 {% block content %}
   <h1>Image Search</h1>
+  <h3>Searching</h3>
+  <p>
+    To perform a search:
+    <pre>{{app_url}}search/nicolas%20cage</pre>
+    Example response:
+<pre>
+[
+  {
+    context: "https://en.wikipedia.org/wiki/Nicolas_Cage",
+    snippet: "Nicolas Cage - Wikipedia",
+    thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR39kJMMB8pDUZuWOCIJae1ROwMapgByqbu1OgOKaC-Bq2DDTwlUzPbdBw",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nicolas_Cage_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29.jpg/220px-Nicolas_Cage_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29.jpg"
+  },
+  {
+    context: "https://www.screengeek.net/2017/06/08/nicolas-cage-star-mandy/",
+    snippet: "Nicolas Cage's New Movie Sounds Too Insane To Be True",
+    thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpVBORxPdOgTRpDG1AX1sLhB1mrtiLt87fC1noMe6pyFE7omcEvmlE1l8",
+    url: "https://www.screengeek.net/wp-content/uploads/2017/06/nicolas-cage.png"
+  }
+]
+</pre>
+  To perform a search with an offset:
+  <pre>{{app_url}}search/nicolas%20cage?offset=10</pre>
+  Example response:
+<pre>
+[ 
+  {
+    context: "https://www.imdb.com/name/nm0000115/",
+    snippet: "Nicolas Cage - IMDb",
+    thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJAusewGKqo6VOMKukw9koVMgf266oiNdp0sFHN9rFV0HF8Ju_RmpNzAs",
+    url: "https://ia.media-imdb.com/images/M/MV5BMTUzMDM4Nzk2MV5BMl5BanBnXkFtZTcwNTcwNjExOQ@@._V1_UY317_CR1,0,214,317_AL_.jpg"
+  },
+  {
+    context: "https://en.wikipedia.org/wiki/Nicolas_Cage_filmography",
+    snippet: "Nicolas Cage filmography - Wikipedia",
+    thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWbi9IfMK3j3bvhBVJwKfX3dr1szJsbWCEB8o_X-Ddxwfvzv0_xh6vAPMG",
+    url: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Nicolas_Cage_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29.jpg"
+  }
+]
+</pre>
+  </p>
+  <h3>Show latest searches</h3>
+  <p>
+    To view the last 10 searches:
+    <pre>{{app_url}}latest</pre>
+    Example response:
+<pre>
+[
+  {
+    terms: "nicolas cage",
+    when: "2018-05-27T17:45:47.937000"
+  },
+  {
+    terms: "hodor",
+    when: "2018-05-27T17:45:38.499000"
+  },
+  {
+    terms: "vanilla slice",
+    when: "2018-05-27T17:45:20.080000"
+  }
+]</pre>
+  </p>
   <!-- <h3>Example creation usage:</h3>
   <pre>
   new/https://i.ytimg.com/vi/Mra4JojUxkk/maxresdefault.jpg

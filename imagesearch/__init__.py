@@ -26,6 +26,7 @@ def create_app():
         "MONGODB_PORT": os.environ.get("MONGODB_PORT", app.config.get("MONGODB_PORT")),
         "MONGODB_USERNAME": os.environ.get("MONGODB_USERNAME", app.config.get("MONGODB_USERNAME")),
         "MONGODB_PASSWORD": os.environ.get("MONGODB_PASSWORD", app.config.get("MONGODB_PASSWORD")),
+        "SSL": os.environ.get("SSL", str(app.config.get("SSL"))).lower() == "true",
         "GOOGLE_API_KEY": os.environ.get("GOOGLE_API_KEY", app.config.get("GOOGLE_API_KEY")),
         "GOOGLE_CSE_ID": os.environ.get("GOOGLE_CSE_ID", app.config.get("GOOGLE_CSE_ID"))
     })

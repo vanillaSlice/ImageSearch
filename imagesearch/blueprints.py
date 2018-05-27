@@ -4,13 +4,16 @@ Exports ImageSearch app blueprints.
 
 from flask import Blueprint, jsonify, render_template, request
 
-from .helpers import get_latest_searches, save_search_to_database, search_images
+from .helpers import (get_app_url, 
+                      get_latest_searches,
+                      save_search_to_database,
+                      search_images)
 
 home = Blueprint("home", __name__, url_prefix="/")
 
 @home.route("/")
 def index():
-    return render_template("home.html")
+    return render_template("home.html", app_url=get_app_url())
 
 @home.route("/search/<terms>")
 def search(terms):

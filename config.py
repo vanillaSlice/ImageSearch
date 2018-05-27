@@ -15,5 +15,6 @@ class Default(object):
     MONGODB_PORT = 27017
     MONGODB_USERNAME = ""
     MONGODB_PASSWORD = ""
+    SSL = False
     GOOGLE_API_KEY = ""
     GOOGLE_CSE_ID = ""

@@ -1,4 +1,4 @@
-from flask import current_app as app
+from flask import current_app as app, request
 import requests
 
 from .models import SearchEntry
@@ -31,3 +31,9 @@ def get_latest_searches():
     for search in latest_searches:
         latest_searches_as_json.append(search.to_json())
     return latest_searches_as_json
+
+def get_app_url():
+    if app.config.get("SSL"):
+        return request.host_url.replace("http://", "https://")
+    else:
+        return request.host_url
