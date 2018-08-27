@@ -43,7 +43,7 @@ The following properties can be configured:
 * MONGODB_PORT - (default is `27017`)
 * MONGODB_USERNAME - (default is empty)
 * MONGODB_PASSWORD - (default is empty)
-* SSL - (default is `True`)
+* SSL - (default is `False`)
 * GOOGLE_API_KEY - (default is empty)
 * GOOGLE_CSE_ID - (default is empty)
 
