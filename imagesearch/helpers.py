@@ -1,9 +1,17 @@
+"""
+Helper functions.
+"""
+
 from flask import current_app as app, request
 import requests
 
 from .models import SearchEntry
 
 def search_images(terms, offset):
+    """
+    Returns search results.
+    """
+
     payload = {"key": app.config["GOOGLE_API_KEY"],
                "cx": app.config["GOOGLE_CSE_ID"],
                "q": terms,
@@ -23,9 +31,17 @@ def search_images(terms, offset):
     return images
 
 def save_search_to_database(terms):
+    """
+    Saves search to database.
+    """
+
     SearchEntry(terms).save()
 
 def get_latest_searches():
+    """
+    Returns latest searchs.
+    """
+
     latest_searches = SearchEntry.objects.order_by("-when").limit(10)
     latest_searches_as_json = []
     for search in latest_searches:
@@ -33,6 +49,10 @@ def get_latest_searches():
     return latest_searches_as_json
 
 def get_app_url():
+    """
+    Returns app url.
+    """
+
     if app.config.get("SSL"):
         return request.host_url.replace("http://", "https://")
     else:
