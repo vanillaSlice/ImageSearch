@@ -7,11 +7,9 @@ dist: xenial
 sudo: true
 install:
   - pip install -r requirements.txt
-  - pip install pylint
-  - pip install pytest-cov
-  - pip install coveralls
+  - pip install -r requirements-test.txt
 script:
-  - pylint imagesearch/
-  - pytest --cov=imagesearch/
+  - ./scripts/lint.sh
+  - ./scripts/test.sh
 after_success:
   - coveralls
