@@ -5,5 +5,11 @@ branches:
 python: 3.7
 dist: xenial
 sudo: true
+install:
+  - pip install -r requirements.txt
+  - pip install pytest-cov
+  - pip install coveralls
 script:
-  - pytest
+  - pytest --cov=imagesearch/
+after_success:
+  - coveralls
