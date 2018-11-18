@@ -4,15 +4,23 @@ Exports a function to create an instance of ImageSearch app.
 
 import os
 
+import connexion
 from flask import Flask, render_template
 from flask_mongoengine import MongoEngine
+from swagger_ui_bundle import swagger_ui_3_path
 
 def create_app():
     """
     Creates the Flask app.
     """
 
-    app = Flask(__name__, instance_relative_config=True)
+    options = {'swagger_path': swagger_ui_3_path}
+    connexion_app = connexion.App(__name__, specification_dir='./swagger', options=options)
+    connexion_app.add_api('swagger.yml')
+
+    app = connexion_app.app
+
+    app.config.root_path = app.instance_path
 
     # load default config
     app.config.from_object("config.Default")
