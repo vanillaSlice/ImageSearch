@@ -1,12 +1,14 @@
 import pytest
+import requests_mock
 
 from imagesearch import create_app
 from imagesearch.models import SearchEntry
-import requests_mock
 
 @pytest.fixture
 def client():
     yield create_app(testing=True).test_client()
+
+    # make sure we clear the database when we're done
     SearchEntry.objects.delete()
 
 def test_home_redirects_to_swagger_ui(client):
@@ -53,6 +55,7 @@ def test_search_returns_search_results_and_saves_search_to_database(client):
 
 def test_latest_returns_latest_search_results(client):
     with requests_mock.Mocker() as req:
+        # mock the image search request
         req.get('https://www.googleapis.com/customsearch/v1', json={'items': []})
 
         # perform some searches

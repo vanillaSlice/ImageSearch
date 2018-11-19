@@ -66,11 +66,6 @@ def create_app(testing=False):
     from imagesearch.blueprints import home
     app.register_blueprint(home)
 
-    # attach 404 error handler
-    @app.errorhandler(404)
-    def handle_404(error):
-        return render_template('404.html', error=error), 404
-
     # disable caching when debugging
     if app.debug:
         @app.after_request
