@@ -1,5 +1,5 @@
 """
-Exports ImageSearch app data models.
+Exports Image Search app data models.
 """
 
 from datetime import datetime
@@ -14,10 +14,10 @@ class SearchEntry(Document):
     terms = StringField()
     when = DateTimeField(default=datetime.utcnow)
 
-    meta = {"collection": "searches"}
+    meta = {'collection': 'searches'}
 
     def to_json(self, *args, **kwargs):
         return {
-            "terms": self.terms,
-            "when": self.when.isoformat()
+            'terms': self.terms,
+            'when': self.when.isoformat()
         }

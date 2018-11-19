@@ -1,21 +1,33 @@
 """
-Contains default config properties. To add local instance
+Contains default and test config properties. To add local instance
 config properties create a file 'instance/config.py' or export the
 properties as environment variables (note that environment variables
 will take precedence).
 """
 
 class Default(object):
-    """Default config properties."""
-    DEBUG = True
-    SECRET_KEY = "default secret key"
-    SERVER_NAME = "localhost:5000"
-    SESSION_COOKIE_DOMAIN = "localhost:5000"
-    MONGODB_DB = "imagesearch"
-    MONGODB_HOST = "localhost"
+    """
+    Default config properties.
+    """
+
+    DEBUG = False
+    ENV = 'production'
+    GOOGLE_API_KEY = ''
+    GOOGLE_CSE_ID = ''
+    MONGODB_DB = 'imagesearch'
+    MONGODB_HOST = '127.0.0.1'
+    MONGODB_PASSWORD = None
     MONGODB_PORT = 27017
-    MONGODB_USERNAME = ""
-    MONGODB_PASSWORD = ""
-    SSL = False
-    GOOGLE_API_KEY = ""
-    GOOGLE_CSE_ID = ""
+    MONGODB_USERNAME = None
+    SECRET_KEY = 'default secret key'
+    SERVER_NAME = '127.0.0.1:5000'
+    SESSION_COOKIE_DOMAIN = '127.0.0.1:5000'
+
+class Test:
+    """
+    Test config properties.
+    """
+
+    DEBUG = True
+    ENV = 'test'
+    MONGODB_DB = 'test_imagesearch'

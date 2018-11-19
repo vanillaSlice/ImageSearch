@@ -1,38 +1,36 @@
 """
-Exports ImageSearch app blueprints.
+Exports Image Search app blueprints.
 """
 
 from flask import Blueprint, jsonify, redirect, request
 
-from .helpers import (get_latest_searches,
-                      save_search_to_database,
-                      search_images)
+from imagesearch.utils import get_latest_searches, save_search_to_database, search_images
 
-home = Blueprint("home", __name__, url_prefix="/")
+home = Blueprint('home', __name__, url_prefix='/')
 
-@home.route("/")
+@home.route('/')
 def index():
     """
-    Index route.
+    Index route redirects to Swagger UI.
     """
 
     return redirect('/ui')
 
-@home.route("/search/<terms>")
+@home.route('/search/<terms>')
 def search(terms):
     """
-    Search route.
+    Search route performs the image search and returns results.
     """
 
-    offset = request.args.get("offset", 1, type=int)
+    offset = request.args.get('offset', 1, type=int)
     images = search_images(terms, offset)
     save_search_to_database(terms)
     return jsonify(images)
 
-@home.route("/latest")
+@home.route('/latest')
 def latest():
     """
-    Latest route.
+    Latest route returns latest performed searches.
     """
 
     return jsonify(get_latest_searches())
