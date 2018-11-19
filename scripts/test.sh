@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-WORKING_DIR=$(dirname "$0")
-
-pytest --cov=$WORKING_DIR/../imagesearch/
+pytest --cov=$(dirname $0)/../imagesearch/ --cov-fail-under=90 -W ignore::DeprecationWarning

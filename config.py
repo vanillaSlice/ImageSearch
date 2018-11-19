@@ -30,4 +30,4 @@ class Test:
 
     DEBUG = True
     ENV = 'test'
-    MONGODB_DB = 'test_imagesearch'
+    MONGODB_HOST = 'mongomock://localhost'
