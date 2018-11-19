@@ -44,7 +44,7 @@ paths:
           schema:
             type: 'array'
             items:
-              '$ref': '#/definitions/Search%20Response'
+              '$ref': '#/definitions/Search Response'
   /latest:
     get:
       tags:
@@ -60,7 +60,7 @@ paths:
           schema:
             type: 'array'
             items:
-              '$ref': '#/definitions/Latest%20Response'
+              '$ref': '#/definitions/Latest Response'
 
 definitions:
   'Search Response':
