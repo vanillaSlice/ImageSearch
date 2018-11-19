@@ -5,15 +5,15 @@ properties as environment variables (note that environment variables
 will take precedence).
 """
 
-class Default(object):
+class Default:
     """
     Default config properties.
     """
 
     DEBUG = False
     ENV = 'production'
-    GOOGLE_API_KEY = ''
-    GOOGLE_CSE_ID = ''
+    GOOGLE_API_KEY = None
+    GOOGLE_CSE_ID = None
     MONGODB_DB = 'imagesearch'
     MONGODB_HOST = '127.0.0.1'
     MONGODB_PASSWORD = None
