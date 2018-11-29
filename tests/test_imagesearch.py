@@ -53,6 +53,22 @@ def test_search_returns_search_results_and_saves_search_to_database(client):
         assert res.json[1]['thumbnail'] == 'thumbnail for image 2'
         assert res.json[1]['context'] == 'context for image 2'
 
+def test_search_empty_response_from_api_returns_empty_list(client):
+    with requests_mock.Mocker() as req:
+        # mock the image search request
+        req.get('https://www.googleapis.com/customsearch/v1', json={})
+
+        # perform search
+        res = client.get('/search/nicolas cage')
+
+        # verify we get an empty list back
+        assert res.status_code == 200
+        assert not res.json
+
+def test_search_invalid_offset_returns_400(client):
+    res = client.get('/search/nicolas cage?offset=invalid')
+    assert res.status_code == 400
+
 def test_latest_returns_latest_search_results(client):
     with requests_mock.Mocker() as req:
         # mock the image search request

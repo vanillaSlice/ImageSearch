@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: 'This page lists all the REST APIs for the Image Search App.'
-  version: '1.0.1'
+  version: '1.0.2'
   title: 'Image Search App'
   contact:
     name: 'Mike Lowe'
@@ -37,7 +37,7 @@ paths:
           in: 'query'
           description: 'The search offset'
           required: false
-          type: 'integer'          
+          type: 'integer'
       responses:
         200:
           description: 'Returns image search results'
@@ -45,6 +45,10 @@ paths:
             type: 'array'
             items:
               '$ref': '#/definitions/Search Response'
+        400:
+          description: 'Invalid search offset'
+          schema:
+            '$ref': '#/definitions/Search Error'
   /latest:
     get:
       tags:
@@ -53,7 +57,7 @@ paths:
       description: 'Returns the latest searches.'
       operationId: 'imagesearch.blueprints.latest'
       produces:
-        - 'application/json'      
+        - 'application/json'
       responses:
         200:
           description: 'Returns the latest searches'
@@ -94,3 +98,22 @@ definitions:
         format: 'date-time'
         description: 'When search was performed'
         example: '2018-11-19T14:32:55.592000'
+  'Search Error':
+    type: 'object'
+    properties:
+      detail:
+        type: 'string'
+        description: 'Error detail'
+        example: 'Wrong type, expected ''integer'' for query parameter ''offset'''
+      status:
+        type: 'integer'
+        description: 'Error status code'
+        example: 400
+      title:
+        type: 'string'
+        description: 'Error title'
+        example: 'Bad Request'
+      type:
+        type: 'string'
+        description: 'Error type'
+        example: 'about:blank'

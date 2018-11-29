@@ -2,7 +2,7 @@
 Exports Image Search app blueprints.
 """
 
-from flask import Blueprint, jsonify, redirect, request
+from flask import Blueprint, jsonify, redirect
 
 from imagesearch.utils import get_latest_searches, save_search_to_database, search_images
 
@@ -17,12 +17,11 @@ def index():
     return redirect('/ui')
 
 @home.route('/search/<terms>')
-def search(terms):
+def search(terms, offset=1):
     """
     Search route performs the image search and returns results.
     """
 
-    offset = request.args.get('offset', 1, type=int)
     images = search_images(terms, offset)
     save_search_to_database(terms)
     return jsonify(images)

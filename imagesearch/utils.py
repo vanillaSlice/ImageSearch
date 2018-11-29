@@ -17,10 +17,14 @@ def search_images(terms, offset):
                'q': terms,
                'start': offset,
                'searchType': 'image'}
-    response = requests.get('https://www.googleapis.com/customsearch/v1', params=payload)
+    response_json = requests.get('https://www.googleapis.com/customsearch/v1', params=payload).json()
 
     images = []
-    for item in response.json()['items']:
+
+    if not 'items' in response_json:
+        return images
+
+    for item in response_json['items']:
         images.append({
             'url': item['link'],
             'snippet': item['snippet'],
