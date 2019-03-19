@@ -10,13 +10,35 @@ A deployed version can be viewed [here](https://sliceimagesearch.herokuapp.com/)
 
 ## Getting Started
 
-### Installing Requirements
+* [With Docker](#with-docker)
+* [Without Docker](#without-docker)
+
+### With Docker
+
+#### Prerequisites
+
+* [Docker](https://www.docker.com/)
+
+#### Running
+
+From your terminal/command prompt run:
+
+```
+docker-compose up
+```
+
+Then point your browser to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
+
+### Without Docker
+
+
+#### Installing Requirements
 
 1. (Optional) Install [virtualenv](https://pypi.org/project/virtualenv/) and
 [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) and create a new environment.
 2. Run `pip install -r requirements.txt`.
 
-### Setting up MongoDB
+#### Setting up MongoDB
 
 You can either:
 
@@ -26,12 +48,12 @@ or:
 
 * Create a database in the cloud using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
-### Setting up Google Custom Search Engine
+#### Setting up Google Custom Search Engine
 
 The app is uses a Google Custom Search Engine to perform searches. Go [here](https://www.google.com/cse/) to set one
 up.
 
-### Configuration
+#### Configuration
 
 The following properties can be configured:
 
@@ -56,7 +78,7 @@ that any environment variables take precedence).
 URI style connections are also supported for connecting to MongoDB, just supply the URI as `MONGODB_HOST` (note that
 URI properties will take precedence).
 
-### Running
+#### Running
 
 From your terminal/command prompt run:
 
@@ -77,6 +99,7 @@ For those of you that are interested, the technology used in this project includ
 * [Swagger](https://swagger.io/) (API documentation)
 * [pytest](https://docs.pytest.org/en/latest/), [Mongomock](https://github.com/mongomock/mongomock)
 and [requests-mock](https://requests-mock.readthedocs.io/en/latest/) (Testing)
+* [Docker](https://www.docker.com/)
 
 ## Useful Links
 
