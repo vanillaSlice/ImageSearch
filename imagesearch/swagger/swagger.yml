@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: 'This page lists all the REST APIs for the Image Search App.'
-  version: '1.0.2'
+  version: '1.2.0'
   title: 'Image Search App'
   contact:
     name: 'Mike Lowe'
