@@ -4,3 +4,4 @@
 __pycache__
 instance/*
 !instance/config-example.py
+mongodb/data
