@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/github/license/vanillaSlice/ImageSearch.svg)](LICENSE)
 
 A simple image search API built with [Flask](http://flask.pocoo.org/) and [MongoDB](https://www.mongodb.com/).
-A deployed version can be viewed [here](https://sliceimagesearch.herokuapp.com/).
+A deployed version can be viewed [here](https://imagesearch.mikelowe.xyz/).
 
 ## Getting Started
 
