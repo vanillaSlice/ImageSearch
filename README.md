@@ -1,7 +1,7 @@
 # Image Search
 
 [![Latest Release](https://img.shields.io/github/release/vanillaSlice/ImageSearch.svg)](https://github.com/vanillaSlice/ImageSearch/releases/latest)
-[![Build Status](https://img.shields.io/travis/vanillaSlice/ImageSearch/master.svg)](https://travis-ci.org/vanillaSlice/ImageSearch)
+[![Build Status](https://img.shields.io/travis/com/vanillaSlice/ImageSearch/master.svg)](https://travis-ci.com/vanillaSlice/ImageSearch)
 [![Coverage Status](https://img.shields.io/coveralls/github/vanillaSlice/ImageSearch/master.svg)](https://coveralls.io/github/vanillaSlice/ImageSearch?branch=master)
 [![License](https://img.shields.io/github/license/vanillaSlice/ImageSearch.svg)](LICENSE)
 
